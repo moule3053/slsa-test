@@ -50,7 +50,7 @@ jobs:
       actions: read
       id-token: write
       contents: write
-    uses: github.com/moule3053/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@moule3053-patch-1
+    uses: moule3053/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@moule3053-patch-1
     with:
       base64-subjects: "${{ needs.build.outputs.hashes }}"
       # Upload provenance to a new release
