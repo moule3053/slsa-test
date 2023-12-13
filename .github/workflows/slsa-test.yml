@@ -1,4 +1,4 @@
-name: Testing SLSA generation 4
+name: Testing SLSA generation 5
 on:
   push:
     branches:
