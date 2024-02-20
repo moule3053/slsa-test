@@ -64,7 +64,7 @@ jobs:
 
   # This step calls the generic workflow to generate provenance.
   provenance:
-    needs: [slsa-setup]
+    needs: [build, slsa-setup]
     permissions:
       actions: read
       id-token: write
