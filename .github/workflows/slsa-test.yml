@@ -55,7 +55,12 @@ jobs:
         id: generate
         uses: slsa-framework/slsa-github-generator/actions/delegator/setup-generic@v1.9.0
         with:
+          slsa-workflow-recipient: "delegator_lowperms-generic_slsa3.yml"
           slsa-runner-label: "ubuntu-latest"
+          slsa-build-action-path: "./action"
+          slsa-version: "v0.2"
+          slsa-workflow-inputs: ${{ toJson(inputs) }}
+          slsa-checkout-sha1: ${{ needs.commit.outputs.sha }}
 
   # This step calls the generic workflow to generate provenance.
   provenance:
