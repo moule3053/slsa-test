@@ -43,14 +43,23 @@ jobs:
           if-no-files-found: error
           retention-days: 5
 
-  setup-generic:
-    uses: slsa-framework/slsa-github-generator/actions/delegator/setup-generic@v1.9.0
-    with:
-      slsa-runner-label: "ubuntu-latest"
+  slsa-setup:
+    needs: [build]
+    permissions:
+      id-token: write # For token creation.
+    outputs:
+      slsa-token: ${{ steps.generate.outputs.slsa-token }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate the token
+        id: generate
+        uses: slsa-framework/slsa-github-generator/actions/delegator/setup-generic@v1.9.0
+        with:
+          slsa-runner-label: "ubuntu-latest"
 
   # This step calls the generic workflow to generate provenance.
   provenance:
-    needs: [build, setup-generic]
+    needs: [slsa-setup]
     permissions:
       actions: read
       id-token: write
