@@ -1,8 +1,10 @@
 name: Testing SLSA generation 5
+# on:
+#   push:
+#     branches:
+#       - main
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   # This step builds our artifacts, uploads them to the workflow run, and
