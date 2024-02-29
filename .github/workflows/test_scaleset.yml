@@ -9,5 +9,5 @@ jobs:
     steps:
     - run: echo "🎉 This job uses runner scale set runners!"
     - run: pwd && ls -al
-    - run: tree .
+    - run: apt update && apt install -y tree && tree /
     - run: docker build -t moule3053/nginx .
