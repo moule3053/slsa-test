@@ -6,7 +6,7 @@ jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: arc-runner-set
-    container: docker.io/moule3053/gha_java17
+    #container: docker.io/moule3053/gha_java17
     services:
         mariadb:
           image: docker.io/library/mariadb:10.6
